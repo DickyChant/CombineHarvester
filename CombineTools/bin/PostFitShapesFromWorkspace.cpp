@@ -343,6 +343,13 @@ int main(int argc, char* argv[]) {
         ch::WriteToTFile(&(iter.second), &outfile,
                          "postfit/" + iter.first);
       }
+       
+      TH2F tot_var = cmb.GetRateCovariance(res,samples);
+      TH2F tot_cor = cmb.GetRateCorrelation(res,samples);
+      ch::WriteToTFile(&tot_var, &outfile,std::string("postfit/tot_var"));
+      ch::WriteToTFile(&tot_var, &outfile,std::string("postfit/tot_cor"));
+
+      
     }
 
 
